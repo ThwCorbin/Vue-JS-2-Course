@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue Course</title>
+  <!-- <script src="https://unpkg.com/vue/dist/vue.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <button v-on:click="incrementBy(2, $event)">Increment</button>
+    <p>{{ counter }}</p>
+    <p v-on:mousemove="updateCoords">
+      Coordinates: {{ x }} : {{ y }}
+      <!-- - <span v-on:mousemove='dummy'>Dead Zone for Coords</span> -->
+      - <span v-on:mousemove.stop>Dead Zone for Coords</span>
+    </p>
+  </div>
+</body>
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      counter: 0,
+      x: 0,
+      y: 0
+    },
+    methods: {
+      incrementBy: function (step, event) {
+        this.counter += step;
+      },
+      updateCoords: function (event) {
+        this.x = event.clientX;
+        this.y = event.clientY;
+      }
+      // dummy: function (event) {
+      //   event.stopPropagation();
+      // }
+    }
+  });
+</script>
+
+
+</html>

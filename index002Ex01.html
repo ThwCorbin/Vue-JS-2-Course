@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue Course</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script> -->
+</head>
+
+<body>
+    <div id="exercise">
+        <!-- 1) Fill the <p> below with your Name and Age - using Interpolation -->
+        <p>VueJS is righteous!</p>
+        <p>{{ name }} is {{ age }} </p>
+
+
+        <!-- 2) Output your age, multiplied by 3 -->
+        <p>Three times my age is: {{ ageX3(age) }}</p>
+        <!-- <p>Three times my age is: {{ age * 3 }}</p> -->
+
+
+        <!-- 3) Call a function to output a random float between 0 and 1 (Math.random()) -->
+        <p>Here's a random float to 4 signficant places: {{ randomNum() }}</p>
+        <p>Let's see a random whole number: {{ randomWholeNum() }}</p>
+
+
+        <!-- 4) Search any image on Google and output it here by binding the "src" attribute -->
+        <div>
+            <p>This is a ninja cat riding a unicorn: </p>
+            <img v-bind:src="image" style="width:100px;height:100px">
+        </div>
+
+
+        <!-- 5) Pre-Populate this input with your name (set the "value" attribute) -->
+        <div>
+            <input v-bind:value="name" type="text">
+        </div>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: "#exercise",
+        data: {
+            name: "Tom",
+            age: 47,
+            image: "https://www.windowscentral.com/sites/wpcentral.com/files/styles/xlarge/public/field/image/2015/03/unicorn-deviant.PNG?itok=Z8cvEuQ0"
+        },
+        methods: {
+            ageX3: function (num) {
+                return num * 3;
+            },
+            randomNum: function () {
+                let randNum = Math.random().toFixed(4);
+                return randNum;
+            },
+            randomWholeNum: function () {
+                let randWhole = Math.floor(Math.random() * 11);
+                return randWhole;
+            }
+        }
+    });
+</script>
+
+
+</html>

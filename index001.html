@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue Course</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <input type="text" v-on:input="changeTitle" /> -->
+    <p>{{ title }}</p>
+    <p>{{ sayHello() }}</p>
+    <p>{{ invitation() }} <a v-bind:href="link">ThWCorbin</a></p>
+  </div>
+</body>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      title: 'Hello World!',
+      link: "http://thwcorbin.com"
+    },
+    methods: {
+      sayHello: function () {
+        return "Hiya!";
+      },
+      invitation: function () {
+        return "Visit my portfolio here:  ";
+      }
+      // changeTitle: function (event) {
+      //   this.title = event.target.value;
+      // }
+    }
+  });
+</script>
+<!-- <script src="vue.js"></script> -->
+
+</html>
+<!-- 
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>VueJS</title>
+  <link rel="stylesheet" href="">
+  <script src="vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-on:input="changeTitle">
+    <p>{{ title }}</p>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        title: 'Hello World!'
+      },
+      methods: {
+        changeTitle: function (event) {
+          this.title = event.target.value;
+        }
+      }
+    });
+  </script>
+</body>
+
+</html> -->
